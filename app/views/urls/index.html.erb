@@ -1,0 +1,10 @@
+<h1>Urls</h1>
+
+<% @urls.each do |url| %>
+  <p>
+    <%= link_to url.id, url.original %> <%= url.original %>
+
+  </p>
+<% end  %>
+
+<%= link_to "Shorten another URL", new_url_path %>
