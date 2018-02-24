@@ -1,10 +1,15 @@
 <h1>Urls</h1>
+<div class="collection">
+
+
+
 
 <% @urls.each do |url| %>
   <p>
     <%= link_to url.random_string, urls_path(:id => url.random_string) %> <%= url.original %>
-
   </p>
 <% end  %>
 
 <%= link_to "Shorten another URL", new_url_path %>
+
+</div>

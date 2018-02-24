@@ -5,11 +5,11 @@ class UrlsController < ApplicationController
   end
 
   def show
-    url = Url.where(:random_string => params[:id]).first
+    @url = Url.where(:random_string => params[:id]).first
     # @url = Url.find_by(:id params[:id])
 
-    if url
-      redirect_to url.original
+    if @url
+      redirect_to @url.original
     else
       render 'index'
     end
@@ -17,6 +17,7 @@ class UrlsController < ApplicationController
 
 
   def new
+    @urls = Url.all
     @url = Url.new
 
     url_string = [('a'..'z')].map(&:to_a).flatten
@@ -28,11 +29,17 @@ class UrlsController < ApplicationController
     @url = Url.new(url_params)
 
     if @url.save
-      redirect_to urls_path
+      redirect_to root_path
     else
       render 'new'
     end
   end
+
+  def destroy
+    @url = Url.destroy(params[:id])
+    redirect_to root_path
+  end
+
 
   def url_params
     params.require(:url).permit(:original, :random_string)

@@ -1,0 +1,17 @@
+<section id="urls-section">
+<% @urls.each do |url| %>
+
+    <ul class = "collapsible">
+
+
+    <li>
+        <div class= "collapsible-header"><%= url.original %></div>
+        <div class= "collapsible-body"><%= link_to url.random_string, urls_path(:id => url.random_string) %></div>
+    </li>
+
+    </ul>
+
+<% end  %>
+
+
+</section>

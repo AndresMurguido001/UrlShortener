@@ -13,6 +13,3 @@
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
-$('docuemnt').ready(function(){
-  console.log("Hello world");
-})

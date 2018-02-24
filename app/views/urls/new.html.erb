@@ -37,6 +37,25 @@
 
   </p>
 <% end  %>
+
+<h3 class = "teal lighten-3 z-depth-4 center">
+  Urls
+</h3>
+
+<% @urls.each do |url| %>
+
+    <ul class = "collapsible">
+
+      <%= link_to 'Destroy',  url,  method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-secondary" %>
+    <li>
+      <div class= "collapsible-header"><%= link_to "localhost3000/#{url.random_string}", url.original %></div>
+        <div class= "collapsible-body"><%= url.original %></div>
+
+    </li>
+
+    </ul>
+
+<% end  %>
 </div>
 </div>
 
