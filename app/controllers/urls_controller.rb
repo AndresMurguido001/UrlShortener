@@ -5,11 +5,11 @@ class UrlsController < ApplicationController
   end
 
   def show
-    # url = Url.where(:original => params[:id])
-    @url = Url.find(params[:id])
+    url = Url.where(:random_string => params[:id]).first
+    # @url = Url.find_by(:id params[:id])
 
-    if @url
-      redirect_to @url.original
+    if url
+      redirect_to url.original
     else
       render 'index'
     end
@@ -18,6 +18,9 @@ class UrlsController < ApplicationController
 
   def new
     @url = Url.new
+
+    url_string = [('a'..'z')].map(&:to_a).flatten
+    @url.random_string = (0..4).map { url_string[rand(url_string.length)] }.join
 
   end
 
@@ -32,7 +35,7 @@ class UrlsController < ApplicationController
   end
 
   def url_params
-    params.require(:url).permit(:original)
+    params.require(:url).permit(:original, :random_string)
   end
 
 end

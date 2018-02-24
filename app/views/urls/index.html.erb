@@ -2,7 +2,7 @@
 
 <% @urls.each do |url| %>
   <p>
-    <%= link_to url.id, url.original %> <%= url.original %>
+    <%= link_to url.random_string, urls_path(:id => url.random_string) %> <%= url.original %>
 
   </p>
 <% end  %>

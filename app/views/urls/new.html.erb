@@ -1,10 +1,43 @@
-<h1>Shorten a URL</h1>
+
+<div class="container">
+
+
+
+
+<div class="row">
+  <div class="col s6 offset-s3">
+<h1 class = "card-panel teal lighten-3 z-depth-4 center">
+
+  Shorten a URL
+
+</h1>
+</div>
+</div>
+
+<div class="row">
+  <div class="col s8 offset-s2">
+
 
 <%= form_for @url do |f| %>
+
+
+<div class="input-field">
   <p>
-    <%= f.label :original %> : <%= f.text_field :original %>
+     <%= f.text_field :original, placeholder: "Original Url" %>
   </p>
+  </div>
+</div>
+</div>
+<div class="row">
+  <div class="col s8 offset-s2">
   <p>
-    <%= f.submit "Shorten my URL" %>
+    <%= f.hidden_field :random_string, :value => @url.random_string %>
+
+    <%= f.submit "Shorten my URL", class:"btn btn-primary z-depth-4" %>
+
   </p>
 <% end  %>
+</div>
+</div>
+
+</div>
